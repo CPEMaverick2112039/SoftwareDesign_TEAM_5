@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+<head>
+    <title>Login - Jersey Designer</title>
+    <style>
+        body { display: flex; justify-content: center; align-items: center; height: 100vh; font-family: Arial; }
+        .container { text-align: center; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Login - Jersey Designer</h1>
+        <form action="/login" method="post">
+            Username: <input type="text" name="username" required><br><br>
+            <button type="submit">Login</button>
+        </form>
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <ul>
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+    </div>
+</body>
+</html>

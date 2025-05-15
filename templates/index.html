@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+<head>
+    <title>Jersey Designer Web</title>
+</head>
+<body>
+    <h1>Jersey Designer</h1>
+    <form action="/" method="post" enctype="multipart/form-data">
+        Username: <input type="text" name="username" required><br>
+        Size: <select name="size">
+            {% for s in sizes %}<option value="{{ s }}">{{ s }}</option>{% endfor %}
+        </select><br>
+        Fabric: <select name="fabric">
+            {% for f in fabrics %}<option value="{{ f }}">{{ f }}</option>{% endfor %}
+        </select><br>
+        Cut: <select name="cut">
+            {% for c in cuts %}<option value="{{ c }}">{{ c }}</option>{% endfor %}
+        </select><br>
+        Design Image: <input type="file" name="design" accept="image/*" required><br>
+        <button type="submit">Upload and Save</button>
+    </form>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul>
+            {% for message in messages %}
+                <li>{{ message }}</li>
+            {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+</body>
+</html>
