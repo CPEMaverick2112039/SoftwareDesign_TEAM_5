@@ -82,7 +82,9 @@ def design():
                            fabrics=fabrics,
                            cuts=cuts,
                            saved_filename=saved_filename,
-                           fabric_image=fabric_image)
+                           fabric_image=fabric_image,
+                           fabric_paths=fabric_paths,
+                           trace_paths=trace_paths)
 
 @app.route('/saved/<filename>')
 def saved_file(filename):
